@@ -1,0 +1,27 @@
+{
+    "name": "Dashboard",
+    "fields": [
+        {
+            "fieldName": "zeitstempel",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "titel",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nachricht",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181126200641",
+    "entityTableName": "dashboard",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

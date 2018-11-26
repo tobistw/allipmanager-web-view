@@ -1,0 +1,83 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="tndSiemens">
+            <h2><span>Tnd Siemens</span> {{tndSiemens.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Tnd Obj Nr</span></dt>
+                <dd>
+                    <span>{{tndSiemens.tndObjNr}}</span>
+                </dd>
+                <dt><span>Tnd Teil Obj Nr</span></dt>
+                <dd>
+                    <span>{{tndSiemens.tndTeilObjNr}}</span>
+                </dd>
+                <dt><span>Tnd Warten</span></dt>
+                <dd>
+                    <span>{{tndSiemens.tndWarten}}</span>
+                </dd>
+                <dt><span>Tnd Leitungs Nr Alt</span></dt>
+                <dd>
+                    <span>{{tndSiemens.tndLeitungsNrAlt}}</span>
+                </dd>
+                <dt><span>Tnd Leitungs Nr Neu</span></dt>
+                <dd>
+                    <span>{{tndSiemens.tndLeitungsNrNeu}}</span>
+                </dd>
+                <dt><span>Tnd GSM Nr</span></dt>
+                <dd>
+                    <span>{{tndSiemens.tndGSMNr}}</span>
+                </dd>
+                <dt><span>Tnd GSM Nr 2</span></dt>
+                <dd>
+                    <span>{{tndSiemens.tndGSMNr2}}</span>
+                </dd>
+                <dt><span>Tnd Wartung BMA</span></dt>
+                <dd>
+                    <span>{{tndSiemens.tndWartungBMA}}</span>
+                </dd>
+                <dt><span>Tnd Si Se</span></dt>
+                <dd>
+                    <span>{{tndSiemens.tndSiSe}}</span>
+                </dd>
+                <dt><span>Tnd Login</span></dt>
+                <dd>
+                    <span>{{tndSiemens.tndLogin}}</span>
+                </dd>
+                <dt><span>Tnd Passwort</span></dt>
+                <dd>
+                    <span>{{tndSiemens.tndPasswort}}</span>
+                </dd>
+                <dt><span>Tnd IP</span></dt>
+                <dd>
+                    <span>{{tndSiemens.tndIP}}</span>
+                </dd>
+                <dt><span>Tnd Telekom Nr</span></dt>
+                <dd>
+                    <span>{{tndSiemens.tndTelekomNr}}</span>
+                </dd>
+                <dt><span>Tnd Leitungs Nr Pseudo</span></dt>
+                <dd>
+                    <span>{{tndSiemens.tndLeitungsNrPseudo}}</span>
+                </dd>
+                <dt><span>Tnd Dsl Frist</span></dt>
+                <dd>
+                    <span>{{tndSiemens.tndDslFrist}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/tnd-siemens', tndSiemens.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

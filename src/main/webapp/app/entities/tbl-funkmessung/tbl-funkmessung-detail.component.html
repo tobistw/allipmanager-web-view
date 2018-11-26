@@ -1,0 +1,73 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="tblFunkmessung">
+            <h2><span>Tbl Funkmessung</span> {{tblFunkmessung.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Fun Id</span></dt>
+                <dd>
+                    <span>{{tblFunkmessung.funId}}</span>
+                </dd>
+                <dt><span>Fun Objekt Nr</span></dt>
+                <dd>
+                    <span>{{tblFunkmessung.funObjektNr}}</span>
+                </dd>
+                <dt><span>Fun Datum</span></dt>
+                <dd>
+                    <span>{{tblFunkmessung.funDatum}}</span>
+                </dd>
+                <dt><span>Fun D 1</span></dt>
+                <dd>
+                    <span>{{tblFunkmessung.funD1}}</span>
+                </dd>
+                <dt><span>Fun D 2</span></dt>
+                <dd>
+                    <span>{{tblFunkmessung.funD2}}</span>
+                </dd>
+                <dt><span>Fun O 2</span></dt>
+                <dd>
+                    <span>{{tblFunkmessung.funO2}}</span>
+                </dd>
+                <dt><span>Fun Eplus</span></dt>
+                <dd>
+                    <span>{{tblFunkmessung.funEplus}}</span>
+                </dd>
+                <dt><span>Fun Zusatz</span></dt>
+                <dd>
+                    <span>{{tblFunkmessung.funZusatz}}</span>
+                </dd>
+                <dt><span>Fun Kabel</span></dt>
+                <dd>
+                    <span>{{tblFunkmessung.funKabel}}</span>
+                </dd>
+                <dt><span>Fun Bemerkung</span></dt>
+                <dd>
+                    <span>{{tblFunkmessung.funBemerkung}}</span>
+                </dd>
+                <dt><span>Fun Name</span></dt>
+                <dd>
+                    <span>{{tblFunkmessung.funName}}</span>
+                </dd>
+                <dt><span>Tbl Termine</span></dt>
+                <dd>
+                    <div *ngIf="tblFunkmessung.tblTermine">
+                        <a [routerLink]="['/tbl-termine', tblFunkmessung.tblTermine?.id, 'view']">{{tblFunkmessung.tblTermine?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/tbl-funkmessung', tblFunkmessung.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

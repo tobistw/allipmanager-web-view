@@ -1,0 +1,82 @@
+<div>
+    <h2 id="page-heading">
+        <span>Tnd Siemens</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-tnd-siemens" [routerLink]="['/tnd-siemens/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Tnd Siemens
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="tndSiemens">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span>ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="tndObjNr"><span>Tnd Obj Nr</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="tndTeilObjNr"><span>Tnd Teil Obj Nr</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="tndWarten"><span>Tnd Warten</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="tndLeitungsNrAlt"><span>Tnd Leitungs Nr Alt</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="tndLeitungsNrNeu"><span>Tnd Leitungs Nr Neu</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="tndGSMNr"><span>Tnd GSM Nr</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="tndGSMNr2"><span>Tnd GSM Nr 2</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="tndWartungBMA"><span>Tnd Wartung BMA</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="tndSiSe"><span>Tnd Si Se</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="tndLogin"><span>Tnd Login</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="tndPasswort"><span>Tnd Passwort</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="tndIP"><span>Tnd IP</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="tndTelekomNr"><span>Tnd Telekom Nr</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="tndLeitungsNrPseudo"><span>Tnd Leitungs Nr Pseudo</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="tndDslFrist"><span>Tnd Dsl Frist</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let tndSiemens of tndSiemens ;trackBy: trackId">
+                <td><a [routerLink]="['/tnd-siemens', tndSiemens.id, 'view' ]">{{tndSiemens.id}}</a></td>
+                <td>{{tndSiemens.tndObjNr}}</td>
+                <td>{{tndSiemens.tndTeilObjNr}}</td>
+                <td>{{tndSiemens.tndWarten | date:'mediumDate'}}</td>
+                <td>{{tndSiemens.tndLeitungsNrAlt}}</td>
+                <td>{{tndSiemens.tndLeitungsNrNeu}}</td>
+                <td>{{tndSiemens.tndGSMNr}}</td>
+                <td>{{tndSiemens.tndGSMNr2}}</td>
+                <td>{{tndSiemens.tndWartungBMA}}</td>
+                <td>{{tndSiemens.tndSiSe}}</td>
+                <td>{{tndSiemens.tndLogin}}</td>
+                <td>{{tndSiemens.tndPasswort}}</td>
+                <td>{{tndSiemens.tndIP}}</td>
+                <td>{{tndSiemens.tndTelekomNr}}</td>
+                <td>{{tndSiemens.tndLeitungsNrPseudo}}</td>
+                <td>{{tndSiemens.tndDslFrist | date:'mediumDate'}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/tnd-siemens', tndSiemens.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/tnd-siemens', tndSiemens.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'tnd-siemens/'+ tndSiemens.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

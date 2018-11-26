@@ -1,0 +1,78 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-tbl-asp-heading">Create or edit a Tbl Asp</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!tblAsp.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="tblAsp.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_aspId">Asp Id</label>
+                    <input type="number" class="form-control" name="aspId" id="field_aspId"
+                        [(ngModel)]="tblAsp.aspId" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_aspName">Asp Name</label>
+                    <input type="text" class="form-control" name="aspName" id="field_aspName"
+                        [(ngModel)]="tblAsp.aspName" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_aspRolle">Asp Rolle</label>
+                    <input type="text" class="form-control" name="aspRolle" id="field_aspRolle"
+                        [(ngModel)]="tblAsp.aspRolle" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_aspTel1">Asp Tel 1</label>
+                    <input type="text" class="form-control" name="aspTel1" id="field_aspTel1"
+                        [(ngModel)]="tblAsp.aspTel1" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_aspMobil1">Asp Mobil 1</label>
+                    <input type="text" class="form-control" name="aspMobil1" id="field_aspMobil1"
+                        [(ngModel)]="tblAsp.aspMobil1" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_aspEmail">Asp Email</label>
+                    <input type="text" class="form-control" name="aspEmail" id="field_aspEmail"
+                        [(ngModel)]="tblAsp.aspEmail" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_aspObjektNrRef">Asp Objekt Nr Ref</label>
+                    <input type="text" class="form-control" name="aspObjektNrRef" id="field_aspObjektNrRef"
+                        [(ngModel)]="tblAsp.aspObjektNrRef" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_aspBemerkung">Asp Bemerkung</label>
+                    <input type="text" class="form-control" name="aspBemerkung" id="field_aspBemerkung"
+                        [(ngModel)]="tblAsp.aspBemerkung" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_kunde">Kunde</label>
+                    <select class="form-control" id="field_kunde" name="kunde" [(ngModel)]="tblAsp.kunde" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="tblVertragOption.id === tblAsp.kunde?.id ? tblAsp.kunde : tblVertragOption" *ngFor="let tblVertragOption of tblvertrags; trackBy: trackTblVertragById">{{tblVertragOption.verObjektNr}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_siemens">Siemens</label>
+                    <select class="form-control" id="field_siemens" name="siemens" [(ngModel)]="tblAsp.siemens" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="tndSiemensOption.id === tblAsp.siemens?.id ? tblAsp.siemens : tndSiemensOption" *ngFor="let tndSiemensOption of tndsiemens; trackBy: trackTndSiemensById">{{tndSiemensOption.tndObjNr}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

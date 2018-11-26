@@ -1,0 +1,88 @@
+{
+    "name": "TndSiemens",
+    "fields": [
+        {
+            "fieldName": "tndObjNr",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tndTeilObjNr",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tndWarten",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "tndLeitungsNrAlt",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tndLeitungsNrNeu",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tndGSMNr",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tndGSMNr2",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tndWartungBMA",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tndSiSe",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tndLogin",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tndPasswort",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tndIP",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tndTelekomNr",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "tndLeitungsNrPseudo",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "tndDslFrist",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "termin",
+            "otherEntityName": "tblTermine",
+            "otherEntityRelationshipName": "siemens"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "kontakt",
+            "otherEntityName": "tblAsp",
+            "otherEntityRelationshipName": "siemens"
+        }
+    ],
+    "changelogDate": "20181126200645",
+    "entityTableName": "tnd_siemens",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

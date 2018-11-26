@@ -1,0 +1,104 @@
+{
+    "name": "TblVertrag",
+    "fields": [
+        {
+            "fieldName": "verHv",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "verEquipmentNr",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "verObjektNr",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "verTeilmelder",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "verVpName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "verVpName2",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "verVpStrasse",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "verVpPlz",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "verVpOrt",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "verObjName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "verObjStrasse",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "verObjPlz",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "verObjOrt",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "verSiseVertrag",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "verSiseTyp",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "verKonzId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "verWartung",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "verMarkieren",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "verDummy",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "termine",
+            "otherEntityName": "tblTermine",
+            "otherEntityRelationshipName": "vertrag"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "kontakt",
+            "otherEntityName": "tblAsp",
+            "otherEntityRelationshipName": "kunde"
+        }
+    ],
+    "changelogDate": "20181126200644",
+    "entityTableName": "tbl_vertrag",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

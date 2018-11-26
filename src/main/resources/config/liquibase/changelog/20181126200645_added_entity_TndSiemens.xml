@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+
+    <property name="now" value="GETDATE()" dbms="mssql"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+
+    <!--
+        Added the entity TndSiemens.
+    -->
+    <changeSet id="20181126200645-1" author="jhipster">
+        <createTable tableName="tnd_siemens">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="tnd_obj_nr" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="tnd_teil_obj_nr" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="tnd_warten" type="date">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="tnd_leitungs_nr_alt" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="tnd_leitungs_nr_neu" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="tnd_gsm_nr" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="tnd_gsm_nr_2" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="tnd_wartung_bma" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="tnd_si_se" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="tnd_login" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="tnd_passwort" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="tnd_ip" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="tnd_telekom_nr" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="tnd_leitungs_nr_pseudo" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="tnd_dsl_frist" type="date">
+                <constraints nullable="true" />
+            </column>
+
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+        
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
+</databaseChangeLog>

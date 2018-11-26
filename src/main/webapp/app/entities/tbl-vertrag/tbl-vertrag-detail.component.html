@@ -1,0 +1,99 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="tblVertrag">
+            <h2><span>Tbl Vertrag</span> {{tblVertrag.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Ver Hv</span></dt>
+                <dd>
+                    <span>{{tblVertrag.verHv}}</span>
+                </dd>
+                <dt><span>Ver Equipment Nr</span></dt>
+                <dd>
+                    <span>{{tblVertrag.verEquipmentNr}}</span>
+                </dd>
+                <dt><span>Ver Objekt Nr</span></dt>
+                <dd>
+                    <span>{{tblVertrag.verObjektNr}}</span>
+                </dd>
+                <dt><span>Ver Teilmelder</span></dt>
+                <dd>
+                    <span>{{tblVertrag.verTeilmelder}}</span>
+                </dd>
+                <dt><span>Ver Vp Name</span></dt>
+                <dd>
+                    <span>{{tblVertrag.verVpName}}</span>
+                </dd>
+                <dt><span>Ver Vp Name 2</span></dt>
+                <dd>
+                    <span>{{tblVertrag.verVpName2}}</span>
+                </dd>
+                <dt><span>Ver Vp Strasse</span></dt>
+                <dd>
+                    <span>{{tblVertrag.verVpStrasse}}</span>
+                </dd>
+                <dt><span>Ver Vp Plz</span></dt>
+                <dd>
+                    <span>{{tblVertrag.verVpPlz}}</span>
+                </dd>
+                <dt><span>Ver Vp Ort</span></dt>
+                <dd>
+                    <span>{{tblVertrag.verVpOrt}}</span>
+                </dd>
+                <dt><span>Ver Obj Name</span></dt>
+                <dd>
+                    <span>{{tblVertrag.verObjName}}</span>
+                </dd>
+                <dt><span>Ver Obj Strasse</span></dt>
+                <dd>
+                    <span>{{tblVertrag.verObjStrasse}}</span>
+                </dd>
+                <dt><span>Ver Obj Plz</span></dt>
+                <dd>
+                    <span>{{tblVertrag.verObjPlz}}</span>
+                </dd>
+                <dt><span>Ver Obj Ort</span></dt>
+                <dd>
+                    <span>{{tblVertrag.verObjOrt}}</span>
+                </dd>
+                <dt><span>Ver Sise Vertrag</span></dt>
+                <dd>
+                    <span>{{tblVertrag.verSiseVertrag}}</span>
+                </dd>
+                <dt><span>Ver Sise Typ</span></dt>
+                <dd>
+                    <span>{{tblVertrag.verSiseTyp}}</span>
+                </dd>
+                <dt><span>Ver Konz Id</span></dt>
+                <dd>
+                    <span>{{tblVertrag.verKonzId}}</span>
+                </dd>
+                <dt><span>Ver Wartung</span></dt>
+                <dd>
+                    <span>{{tblVertrag.verWartung}}</span>
+                </dd>
+                <dt><span>Ver Markieren</span></dt>
+                <dd>
+                    <span>{{tblVertrag.verMarkieren}}</span>
+                </dd>
+                <dt><span>Ver Dummy</span></dt>
+                <dd>
+                    <span>{{tblVertrag.verDummy}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/tbl-vertrag', tblVertrag.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

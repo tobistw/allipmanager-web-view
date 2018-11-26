@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity TblFunkmessung.
+    -->
+    <changeSet id="20181126200640-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="tbl_termine_id"
+                                 baseTableName="tbl_funkmessung"
+                                 constraintName="fk_tbl_funkmessung_tbl_termine_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tbl_termine"/>
+
+    </changeSet>
+</databaseChangeLog>

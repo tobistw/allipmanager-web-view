@@ -1,0 +1,67 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="tblAsp">
+            <h2><span>Tbl Asp</span> {{tblAsp.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Asp Id</span></dt>
+                <dd>
+                    <span>{{tblAsp.aspId}}</span>
+                </dd>
+                <dt><span>Asp Name</span></dt>
+                <dd>
+                    <span>{{tblAsp.aspName}}</span>
+                </dd>
+                <dt><span>Asp Rolle</span></dt>
+                <dd>
+                    <span>{{tblAsp.aspRolle}}</span>
+                </dd>
+                <dt><span>Asp Tel 1</span></dt>
+                <dd>
+                    <span>{{tblAsp.aspTel1}}</span>
+                </dd>
+                <dt><span>Asp Mobil 1</span></dt>
+                <dd>
+                    <span>{{tblAsp.aspMobil1}}</span>
+                </dd>
+                <dt><span>Asp Email</span></dt>
+                <dd>
+                    <span>{{tblAsp.aspEmail}}</span>
+                </dd>
+                <dt><span>Asp Objekt Nr Ref</span></dt>
+                <dd>
+                    <span>{{tblAsp.aspObjektNrRef}}</span>
+                </dd>
+                <dt><span>Asp Bemerkung</span></dt>
+                <dd>
+                    <span>{{tblAsp.aspBemerkung}}</span>
+                </dd>
+                <dt><span>Kunde</span></dt>
+                <dd>
+                    <div *ngIf="tblAsp.kunde">
+                        <a [routerLink]="['/tbl-vertrag', tblAsp.kunde?.id, 'view']">{{tblAsp.kunde?.verObjektNr}}</a>
+                    </div>
+                </dd>
+                <dt><span>Siemens</span></dt>
+                <dd>
+                    <div *ngIf="tblAsp.siemens">
+                        <a [routerLink]="['/tnd-siemens', tblAsp.siemens?.id, 'view']">{{tblAsp.siemens?.tndObjNr}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/tbl-asp', tblAsp.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

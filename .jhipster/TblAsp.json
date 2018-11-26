@@ -1,0 +1,60 @@
+{
+    "name": "TblAsp",
+    "fields": [
+        {
+            "fieldName": "aspId",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "aspName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "aspRolle",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "aspTel1",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "aspMobil1",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "aspEmail",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "aspObjektNrRef",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "aspBemerkung",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "kunde",
+            "otherEntityName": "tblVertrag",
+            "otherEntityField": "verObjektNr"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "siemens",
+            "otherEntityName": "tndSiemens",
+            "otherEntityField": "tndObjNr"
+        }
+    ],
+    "changelogDate": "20181126200646",
+    "entityTableName": "tbl_asp",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

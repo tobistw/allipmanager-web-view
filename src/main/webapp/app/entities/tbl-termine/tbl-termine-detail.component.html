@@ -1,0 +1,139 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="tblTermine">
+            <h2><span>Tbl Termine</span> {{tblTermine.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Ter Termian Id</span></dt>
+                <dd>
+                    <span>{{tblTermine.terTermianId}}</span>
+                </dd>
+                <dt><span>Ter Objekt Nr</span></dt>
+                <dd>
+                    <span>{{tblTermine.terObjektNr}}</span>
+                </dd>
+                <dt><span>Ter Per Nr Ref</span></dt>
+                <dd>
+                    <span>{{tblTermine.terPerNrRef}}</span>
+                </dd>
+                <dt><span>Ter Ibs Datum</span></dt>
+                <dd>
+                    <span>{{tblTermine.terIbsDatum}}</span>
+                </dd>
+                <dt><span>Ter Ibs Uhrzeit</span></dt>
+                <dd>
+                    <span>{{tblTermine.terIbsUhrzeit}}</span>
+                </dd>
+                <dt><span>Ter Datum Neu</span></dt>
+                <dd>
+                    <span>{{tblTermine.terDatumNeu}}</span>
+                </dd>
+                <dt><span>Ter Bemerkung</span></dt>
+                <dd>
+                    <span>{{tblTermine.terBemerkung}}</span>
+                </dd>
+                <dt><span>Ter Antennen</span></dt>
+                <dd>
+                    <span>{{tblTermine.terAntennen}}</span>
+                </dd>
+                <dt><span>Ter Montiert</span></dt>
+                <dd>
+                    <span>{{tblTermine.terMontiert}}</span>
+                </dd>
+                <dt><span>Ter Ibs Provisorium</span></dt>
+                <dd>
+                    <span>{{tblTermine.terIbsProvisorium}}</span>
+                </dd>
+                <dt><span>Ter Konz Id</span></dt>
+                <dd>
+                    <span>{{tblTermine.terKonzId}}</span>
+                </dd>
+                <dt><span>Ter Status</span></dt>
+                <dd>
+                    <span>{{tblTermine.terStatus}}</span>
+                </dd>
+                <dt><span>Ter Status Protokoll</span></dt>
+                <dd>
+                    <span>{{tblTermine.terStatusProtokoll}}</span>
+                </dd>
+                <dt><span>Ter Kunden Info Typ</span></dt>
+                <dd>
+                    <span>{{tblTermine.terKundenInfoTyp}}</span>
+                </dd>
+                <dt><span>Ter Kunde Informiert</span></dt>
+                <dd>
+                    <span>{{tblTermine.terKundeInformiert}}</span>
+                </dd>
+                <dt><span>Ter Kunde Bestaetigt</span></dt>
+                <dd>
+                    <span>{{tblTermine.terKundeBestaetigt}}</span>
+                </dd>
+                <dt><span>Ter Kunde Antenne Erhalten</span></dt>
+                <dd>
+                    <span>{{tblTermine.terKundeAntenneErhalten}}</span>
+                </dd>
+                <dt><span>Ter Siemens Informiert</span></dt>
+                <dd>
+                    <span>{{tblTermine.terSiemensInformiert}}</span>
+                </dd>
+                <dt><span>Ter Dsl Frist</span></dt>
+                <dd>
+                    <span>{{tblTermine.terDslFrist}}</span>
+                </dd>
+                <dt><span>Ter Termintyp</span></dt>
+                <dd>
+                    <span>{{tblTermine.terTermintyp}}</span>
+                </dd>
+                <dt><span>Ter Funkmessung</span></dt>
+                <dd>
+                    <span>{{tblTermine.terFunkmessung}}</span>
+                </dd>
+                <dt><span>Ter Klaerung</span></dt>
+                <dd>
+                    <span>{{tblTermine.terKlaerung}}</span>
+                </dd>
+                <dt><span>Ter Abgesagt</span></dt>
+                <dd>
+                    <span>{{tblTermine.terAbgesagt}}</span>
+                </dd>
+                <dt><span>Ter Hinweis</span></dt>
+                <dd>
+                    <span>{{tblTermine.terHinweis}}</span>
+                </dd>
+                <dt><span>Ter Sim Im Geraet</span></dt>
+                <dd>
+                    <span>{{tblTermine.terSimImGeraet}}</span>
+                </dd>
+                <dt><span>User</span></dt>
+                <dd>
+                    {{tblTermine.user?.id}}
+                </dd>
+                <dt><span>Vertrag</span></dt>
+                <dd>
+                    <div *ngIf="tblTermine.vertrag">
+                        <a [routerLink]="['/tbl-vertrag', tblTermine.vertrag?.id, 'view']">{{tblTermine.vertrag?.verObjektNr}}</a>
+                    </div>
+                </dd>
+                <dt><span>Siemens</span></dt>
+                <dd>
+                    <div *ngIf="tblTermine.siemens">
+                        <a [routerLink]="['/tnd-siemens', tblTermine.siemens?.id, 'view']">{{tblTermine.siemens?.terObjektNr}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/tbl-termine', tblTermine.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

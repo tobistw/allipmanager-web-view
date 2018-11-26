@@ -1,0 +1,185 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-tbl-termine-heading">Create or edit a Tbl Termine</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!tblTermine.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="tblTermine.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_terTermianId">Ter Termian Id</label>
+                    <input type="number" class="form-control" name="terTermianId" id="field_terTermianId"
+                        [(ngModel)]="tblTermine.terTermianId" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_terObjektNr">Ter Objekt Nr</label>
+                    <input type="text" class="form-control" name="terObjektNr" id="field_terObjektNr"
+                        [(ngModel)]="tblTermine.terObjektNr" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_terPerNrRef">Ter Per Nr Ref</label>
+                    <input type="text" class="form-control" name="terPerNrRef" id="field_terPerNrRef"
+                        [(ngModel)]="tblTermine.terPerNrRef" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_terIbsDatum">Ter Ibs Datum</label>
+                    <div class="input-group">
+                        <input id="field_terIbsDatum" type="text" class="form-control" name="terIbsDatum" ngbDatepicker  #terIbsDatumDp="ngbDatepicker" [(ngModel)]="tblTermine.terIbsDatum"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="terIbsDatumDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_terIbsUhrzeit">Ter Ibs Uhrzeit</label>
+                    <input type="text" class="form-control" name="terIbsUhrzeit" id="field_terIbsUhrzeit"
+                        [(ngModel)]="tblTermine.terIbsUhrzeit" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_terDatumNeu">Ter Datum Neu</label>
+                    <div class="input-group">
+                        <input id="field_terDatumNeu" type="text" class="form-control" name="terDatumNeu" ngbDatepicker  #terDatumNeuDp="ngbDatepicker" [(ngModel)]="tblTermine.terDatumNeu"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="terDatumNeuDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_terBemerkung">Ter Bemerkung</label>
+                    <input type="text" class="form-control" name="terBemerkung" id="field_terBemerkung"
+                        [(ngModel)]="tblTermine.terBemerkung" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_terAntennen">Ter Antennen</label>
+                    <input type="checkbox" class="form-control" name="terAntennen" id="field_terAntennen"
+                        [(ngModel)]="tblTermine.terAntennen" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_terMontiert">Ter Montiert</label>
+                    <input type="checkbox" class="form-control" name="terMontiert" id="field_terMontiert"
+                        [(ngModel)]="tblTermine.terMontiert" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_terIbsProvisorium">Ter Ibs Provisorium</label>
+                    <input type="checkbox" class="form-control" name="terIbsProvisorium" id="field_terIbsProvisorium"
+                        [(ngModel)]="tblTermine.terIbsProvisorium" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_terKonzId">Ter Konz Id</label>
+                    <input type="text" class="form-control" name="terKonzId" id="field_terKonzId"
+                        [(ngModel)]="tblTermine.terKonzId" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_terStatus">Ter Status</label>
+                    <input type="text" class="form-control" name="terStatus" id="field_terStatus"
+                        [(ngModel)]="tblTermine.terStatus" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_terStatusProtokoll">Ter Status Protokoll</label>
+                    <input type="text" class="form-control" name="terStatusProtokoll" id="field_terStatusProtokoll"
+                        [(ngModel)]="tblTermine.terStatusProtokoll" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_terKundenInfoTyp">Ter Kunden Info Typ</label>
+                    <input type="text" class="form-control" name="terKundenInfoTyp" id="field_terKundenInfoTyp"
+                        [(ngModel)]="tblTermine.terKundenInfoTyp" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_terKundeInformiert">Ter Kunde Informiert</label>
+                    <input type="checkbox" class="form-control" name="terKundeInformiert" id="field_terKundeInformiert"
+                        [(ngModel)]="tblTermine.terKundeInformiert" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_terKundeBestaetigt">Ter Kunde Bestaetigt</label>
+                    <input type="checkbox" class="form-control" name="terKundeBestaetigt" id="field_terKundeBestaetigt"
+                        [(ngModel)]="tblTermine.terKundeBestaetigt" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_terKundeAntenneErhalten">Ter Kunde Antenne Erhalten</label>
+                    <input type="checkbox" class="form-control" name="terKundeAntenneErhalten" id="field_terKundeAntenneErhalten"
+                        [(ngModel)]="tblTermine.terKundeAntenneErhalten" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_terSiemensInformiert">Ter Siemens Informiert</label>
+                    <input type="checkbox" class="form-control" name="terSiemensInformiert" id="field_terSiemensInformiert"
+                        [(ngModel)]="tblTermine.terSiemensInformiert" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_terDslFrist">Ter Dsl Frist</label>
+                    <div class="input-group">
+                        <input id="field_terDslFrist" type="text" class="form-control" name="terDslFrist" ngbDatepicker  #terDslFristDp="ngbDatepicker" [(ngModel)]="tblTermine.terDslFrist"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="terDslFristDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_terTermintyp">Ter Termintyp</label>
+                    <input type="text" class="form-control" name="terTermintyp" id="field_terTermintyp"
+                        [(ngModel)]="tblTermine.terTermintyp" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_terFunkmessung">Ter Funkmessung</label>
+                    <input type="checkbox" class="form-control" name="terFunkmessung" id="field_terFunkmessung"
+                        [(ngModel)]="tblTermine.terFunkmessung" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_terKlaerung">Ter Klaerung</label>
+                    <input type="checkbox" class="form-control" name="terKlaerung" id="field_terKlaerung"
+                        [(ngModel)]="tblTermine.terKlaerung" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_terAbgesagt">Ter Abgesagt</label>
+                    <input type="checkbox" class="form-control" name="terAbgesagt" id="field_terAbgesagt"
+                        [(ngModel)]="tblTermine.terAbgesagt" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_terHinweis">Ter Hinweis</label>
+                    <input type="checkbox" class="form-control" name="terHinweis" id="field_terHinweis"
+                        [(ngModel)]="tblTermine.terHinweis" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_terSimImGeraet">Ter Sim Im Geraet</label>
+                    <input type="checkbox" class="form-control" name="terSimImGeraet" id="field_terSimImGeraet"
+                        [(ngModel)]="tblTermine.terSimImGeraet" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_user">User</label>
+                    <select class="form-control" id="field_user" name="user" [(ngModel)]="tblTermine.user" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id === tblTermine.user?.id ? tblTermine.user : userOption" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_vertrag">Vertrag</label>
+                    <select class="form-control" id="field_vertrag" name="vertrag" [(ngModel)]="tblTermine.vertrag" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="tblVertragOption.id === tblTermine.vertrag?.id ? tblTermine.vertrag : tblVertragOption" *ngFor="let tblVertragOption of tblvertrags; trackBy: trackTblVertragById">{{tblVertragOption.verObjektNr}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_siemens">Siemens</label>
+                    <select class="form-control" id="field_siemens" name="siemens" [(ngModel)]="tblTermine.siemens" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="tndSiemensOption.id === tblTermine.siemens?.id ? tblTermine.siemens : tndSiemensOption" *ngFor="let tndSiemensOption of tndsiemens; trackBy: trackTndSiemensById">{{tndSiemensOption.terObjektNr}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

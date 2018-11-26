@@ -1,0 +1,91 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-tbl-funkmessung-heading">Create or edit a Tbl Funkmessung</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!tblFunkmessung.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="tblFunkmessung.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_funId">Fun Id</label>
+                    <input type="number" class="form-control" name="funId" id="field_funId"
+                        [(ngModel)]="tblFunkmessung.funId" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_funObjektNr">Fun Objekt Nr</label>
+                    <input type="text" class="form-control" name="funObjektNr" id="field_funObjektNr"
+                        [(ngModel)]="tblFunkmessung.funObjektNr" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_funDatum">Fun Datum</label>
+                    <div class="input-group">
+                        <input id="field_funDatum" type="text" class="form-control" name="funDatum" ngbDatepicker  #funDatumDp="ngbDatepicker" [(ngModel)]="tblFunkmessung.funDatum"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="funDatumDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_funD1">Fun D 1</label>
+                    <input type="text" class="form-control" name="funD1" id="field_funD1"
+                        [(ngModel)]="tblFunkmessung.funD1" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_funD2">Fun D 2</label>
+                    <input type="text" class="form-control" name="funD2" id="field_funD2"
+                        [(ngModel)]="tblFunkmessung.funD2" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_funO2">Fun O 2</label>
+                    <input type="text" class="form-control" name="funO2" id="field_funO2"
+                        [(ngModel)]="tblFunkmessung.funO2" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_funEplus">Fun Eplus</label>
+                    <input type="text" class="form-control" name="funEplus" id="field_funEplus"
+                        [(ngModel)]="tblFunkmessung.funEplus" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_funZusatz">Fun Zusatz</label>
+                    <input type="text" class="form-control" name="funZusatz" id="field_funZusatz"
+                        [(ngModel)]="tblFunkmessung.funZusatz" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_funKabel">Fun Kabel</label>
+                    <input type="text" class="form-control" name="funKabel" id="field_funKabel"
+                        [(ngModel)]="tblFunkmessung.funKabel" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_funBemerkung">Fun Bemerkung</label>
+                    <input type="text" class="form-control" name="funBemerkung" id="field_funBemerkung"
+                        [(ngModel)]="tblFunkmessung.funBemerkung" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_funName">Fun Name</label>
+                    <input type="text" class="form-control" name="funName" id="field_funName"
+                        [(ngModel)]="tblFunkmessung.funName" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_tblTermine">Tbl Termine</label>
+                    <select class="form-control" id="field_tblTermine" name="tblTermine" [(ngModel)]="tblFunkmessung.tblTermine" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="tblTermineOption.id === tblFunkmessung.tblTermine?.id ? tblFunkmessung.tblTermine : tblTermineOption" *ngFor="let tblTermineOption of tbltermines; trackBy: trackTblTermineById">{{tblTermineOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

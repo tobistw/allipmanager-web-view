@@ -1,0 +1,131 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-abnahmeprotokoll-heading">Create or edit a Abnahmeprotokoll</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!abnahmeprotokoll.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="abnahmeprotokoll.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_objektNummer">Objekt Nummer</label>
+                    <input type="text" class="form-control" name="objektNummer" id="field_objektNummer"
+                        [(ngModel)]="abnahmeprotokoll.objektNummer" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_datumLeistung">Datum Leistung</label>
+                    <div class="input-group">
+                        <input id="field_datumLeistung" type="text" class="form-control" name="datumLeistung" ngbDatepicker  #datumLeistungDp="ngbDatepicker" [(ngModel)]="abnahmeprotokoll.datumLeistung"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="datumLeistungDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_firma">Firma</label>
+                    <input type="text" class="form-control" name="firma" id="field_firma"
+                        [(ngModel)]="abnahmeprotokoll.firma" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_kundeAsp">Kunde Asp</label>
+                    <input type="text" class="form-control" name="kundeAsp" id="field_kundeAsp"
+                        [(ngModel)]="abnahmeprotokoll.kundeAsp" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_firmaAsp">Firma Asp</label>
+                    <input type="text" class="form-control" name="firmaAsp" id="field_firmaAsp"
+                        [(ngModel)]="abnahmeprotokoll.firmaAsp" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_sise">Sise</label>
+                    <input type="checkbox" class="form-control" name="sise" id="field_sise"
+                        [(ngModel)]="abnahmeprotokoll.sise" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_zusatzleistungen">Zusatzleistungen</label>
+                    <input type="text" class="form-control" name="zusatzleistungen" id="field_zusatzleistungen"
+                        [(ngModel)]="abnahmeprotokoll.zusatzleistungen" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_antenne">Antenne</label>
+                    <input type="text" class="form-control" name="antenne" id="field_antenne"
+                        [(ngModel)]="abnahmeprotokoll.antenne" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_gprsSignal">Gprs Signal</label>
+                    <input type="text" class="form-control" name="gprsSignal" id="field_gprsSignal"
+                        [(ngModel)]="abnahmeprotokoll.gprsSignal" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_alarmTest">Alarm Test</label>
+                    <input type="checkbox" class="form-control" name="alarmTest" id="field_alarmTest"
+                        [(ngModel)]="abnahmeprotokoll.alarmTest" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_alarmBemerkung">Alarm Bemerkung</label>
+                    <input type="text" class="form-control" name="alarmBemerkung" id="field_alarmBemerkung"
+                        [(ngModel)]="abnahmeprotokoll.alarmBemerkung" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_ort">Ort</label>
+                    <input type="text" class="form-control" name="ort" id="field_ort"
+                        [(ngModel)]="abnahmeprotokoll.ort" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_datum">Datum</label>
+                    <div class="input-group">
+                        <input id="field_datum" type="text" class="form-control" name="datum" ngbDatepicker  #datumDp="ngbDatepicker" [(ngModel)]="abnahmeprotokoll.datum"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="datumDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_abnProtokoll">Abn Protokoll</label>
+                    <div>
+                        <div *ngIf="abnahmeprotokoll.abnProtokoll" class="form-text text-danger clearfix">
+                            <a class="pull-left" (click)="openFile(abnahmeprotokoll.abnProtokollContentType, abnahmeprotokoll.abnProtokoll)">open</a><br>
+                            <span class="pull-left">{{abnahmeprotokoll.abnProtokollContentType}}, {{byteSize(abnahmeprotokoll.abnProtokoll)}}</span>
+                            <button type="button" (click)="abnahmeprotokoll.abnProtokoll=null;abnahmeprotokoll.abnProtokollContentType=null;"
+                                    class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_abnProtokoll" (change)="setFileData($event, abnahmeprotokoll, 'abnProtokoll', false)"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="abnProtokoll" id="field_abnProtokoll"
+                        [(ngModel)]="abnahmeprotokoll.abnProtokoll" />
+                    <input type="hidden" class="form-control" name="abnProtokollContentType" id="field_abnProtokollContentType"
+                        [(ngModel)]="abnahmeprotokoll.abnProtokollContentType" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_user">User</label>
+                    <select class="form-control" id="field_user" name="user" [(ngModel)]="abnahmeprotokoll.user" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id === abnahmeprotokoll.user?.id ? abnahmeprotokoll.user : userOption" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_abnahmeprotokoll">Abnahmeprotokoll</label>
+                    <select class="form-control" id="field_abnahmeprotokoll" name="abnahmeprotokoll" [(ngModel)]="abnahmeprotokoll.abnahmeprotokoll" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="tblTermineOption.id === abnahmeprotokoll.abnahmeprotokoll?.id ? abnahmeprotokoll.abnahmeprotokoll : tblTermineOption" *ngFor="let tblTermineOption of tbltermines; trackBy: trackTblTermineById">{{tblTermineOption.objektNummer}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

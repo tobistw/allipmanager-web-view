@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity TblAsp.
+    -->
+    <changeSet id="20181126200646-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="kunde_id"
+                                 baseTableName="tbl_asp"
+                                 constraintName="fk_tbl_asp_kunde_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tbl_vertrag"/>
+
+        <addForeignKeyConstraint baseColumnNames="siemens_id"
+                                 baseTableName="tbl_asp"
+                                 constraintName="fk_tbl_asp_siemens_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tnd_siemens"/>
+
+    </changeSet>
+</databaseChangeLog>
