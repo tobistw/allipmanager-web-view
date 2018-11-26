@@ -1,0 +1,174 @@
+entity TblTermine {
+terTermianId Long,
+terObjektNr String,
+terPerNrRef String,
+terIbsDatum LocalDate,
+terIbsUhrzeit String,
+terDatumNeu LocalDate,
+terBemerkung String,
+terAntennen Boolean,
+terMontiert Boolean,
+terIbsProvisorium Boolean,
+terKonzId String,
+terStatus String,
+terStatusProtokoll String,
+terKundenInfoTyp String,
+terKundeInformiert Boolean,
+terKundeBestaetigt Boolean,
+terKundeAntenneErhalten Boolean,
+terSiemensInformiert Boolean,
+terDslFrist LocalDate,
+terTermintyp String,
+terFunkmessung Boolean,
+terKlaerung Boolean,
+terAbgesagt Boolean,
+terHinweis Boolean,
+terSimImGeraet Boolean
+}
+
+entity TblFunkmessung {
+	Id Integer,
+	funObjektNr String,
+    funDatum LocalDate,
+    funD1 String,
+    funD2 String,
+    funO2 String,
+    funEplus String,
+    funZusatz String,
+    funKabel String,
+    funBemerkung String,
+    funName String
+}
+
+entity Dashboard {
+	zeitstempel ZonedDateTime,
+    titel String,
+    nachricht String
+}
+
+entity Arbeitsbeleg {
+	objektNummer String,
+	datumLeistung LocalDate,
+    status Belegstatus,
+    arbeitsbeleg Blob
+}
+
+enum Belegstatus {
+	OFFEN,
+    FERTIG,
+    ABBRUCH
+}
+
+entity Abnahmeprotokoll {
+	objektNummer String,
+	datumLeistung LocalDate,
+    firma String,
+    kundeAsp String,
+    firmaAsp String,
+    sise Boolean,
+    zusatzleistungen String,
+    antenne String,
+    gprsSignal String,
+    alarmTest Boolean,
+    alarmBemerkung String,
+    ort String,
+    datum LocalDate,
+    abnProtokoll Blob
+}
+
+entity TblVertrag {
+ verHv String,
+ verEquipmentNr String,
+ verObjektNr String,
+ verTeilmelder String,
+ verVpName String,
+ verVpName2 String,
+ verVpStrasse String,
+ verVpPlz String,
+ verVpOrt String,
+ verObjName String,
+ verObjStrasse String,
+ verObjPlz String,
+ verObjOrt String,
+ verSiseVertrag String,
+ verSiseTyp String,
+ verKonzId String,
+ verWartung String,
+ verMarkieren Boolean,
+ verDummy Boolean
+}
+
+entity TndSiemens {
+	tndObjNr String,
+    tndTeilObjNr String,
+    tndWarten LocalDate,
+    tndLeitungsNrAlt String,
+    tndLeitungsNrNeu String,
+    tndGSM_Nr String,
+    tndGSM_Nr2 String,
+    tndWartungBMA String,
+    tndSiSe String,
+    tndLogin String,
+    tndPasswort String,
+    tndIP String,
+    tndTelekomNr Integer,
+    tndLeitungsNrPseudo Long,
+    tndDslFrist LocalDate
+}
+
+entity TblAsp {
+	aspId Integer,
+	aspName String,
+    aspRolle String,
+    aspTel1 String, 
+    aspMobil1 String,
+    aspEmail String,
+    aspObjektNrRef String,
+    aspBemerkung String
+}
+
+relationship ManyToOne {
+	TblTermine{user} to User
+}
+
+relationship OneToMany {
+	TblTermine{funkmessung(id)} to TblFunkmessung
+}
+
+relationship ManyToOne {
+	Abnahmeprotokoll{user} to User
+}
+
+relationship ManyToOne {
+	Arbeitsbeleg{user} to User
+}
+
+relationship OneToMany {
+	TblVertrag{termine(terObjektNr)} 
+    	to TblTermine{vertrag(verObjektNr)}
+}
+
+relationship OneToMany {
+	TndSiemens{termin(terObjektNr)} 
+    	to TblTermine{siemens(terObjektNr)}
+}
+
+relationship OneToMany {
+	TndVertrag{kontakt(aspObjektNrRef)} to TblAsp{kunde(verObjektNr)}
+}
+
+relationship OneToMany {
+	TndSiemens{kontakt(aspObjektNrRef)} to TblAsp{siemens(tndObjNr)}
+}
+
+relationship ManyToOne {
+	Abnahmeprotokoll{Abnahmeprotokoll(objektNummer)}
+    	to TblTermine
+}
+
+relationship ManyToOne {
+	Arbeitsbeleg{termin(terObjektNr)}
+    	to TblTermine
+}
+
+paginate TblTermine, TblVertrag, TndSiemens, TblAsp with infinite-scroll
