@@ -1,0 +1,39 @@
+{
+  "generator-jhipster": {
+    "applicationType": "monolith",
+    "gitCompany": "",
+    "baseName": "allipmanagerwebview",
+    "packageName": "de.stwgmbh.app",
+    "packageFolder": "de/stwgmbh/app",
+    "serverPort": 8080,
+    "serviceDiscoveryType": false,
+    "authenticationType": "jwt",
+    "uaaBaseName": "../uaa",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "mssql",
+    "prodDatabaseType": "mssql",
+    "searchEngine": false,
+    "enableSwaggerCodegen": false,
+    "messageBroker": false,
+    "buildTool": "gradle",
+    "useSass": false,
+    "clientPackageManager": "npm",
+    "testFrameworks": [],
+    "enableTranslation": false,
+    "nativeLanguage": "en",
+    "languages": [
+      "en"
+    ],
+    "clientFramework": "angularX",
+    "jhiPrefix": "jhi",
+    "jhipsterVersion": "5.7.0",
+    "jwtSecretKey": "MmRmYjA4M2ExZDVmZDM3NWZlNDg2Mzc4ODY5NzMwNTQyNTk0ODY1YjZjM2U0YzFmMGM0YTc1MDkwNjJiMTg3YmRkOWNjMGUzZTBmYzE5NmJjYjQwNWFmMzRmNzBlMDQ4NjdlMzcxMWE3NGE0YzFhY2RmYzE5ODEzNWJiMjYyNmI=",
+    "otherModules": []
+  },
+  "git-provider": "GitHub",
+  "git-company": "tobistw",
+  "repository-name": "allipmanager-web-view"
+}
