@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+
+    <property name="now" value="GETDATE()" dbms="mssql"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+
+    <!--
+        Added the entity TblTermine.
+    -->
+    <changeSet id="20181126200639-1" author="jhipster">
+        <createTable tableName="tbl_termine">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="ter_termian_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="ter_objekt_nr" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="ter_per_nr_ref" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="ter_ibs_datum" type="date">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="ter_ibs_uhrzeit" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="ter_datum_neu" type="date">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="ter_bemerkung" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="ter_antennen" type="bit">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="ter_montiert" type="bit">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="ter_ibs_provisorium" type="bit">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="ter_konz_id" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="ter_status" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="ter_status_protokoll" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="ter_kunden_info_typ" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="ter_kunde_informiert" type="bit">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="ter_kunde_bestaetigt" type="bit">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="ter_kunde_antenne_erhalten" type="bit">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="ter_siemens_informiert" type="bit">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="ter_dsl_frist" type="date">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="ter_termintyp" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="ter_funkmessung" type="bit">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="ter_klaerung" type="bit">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="ter_abgesagt" type="bit">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="ter_hinweis" type="bit">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="ter_sim_im_geraet" type="bit">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="user_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="vertrag_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="siemens_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+        
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
+</databaseChangeLog>

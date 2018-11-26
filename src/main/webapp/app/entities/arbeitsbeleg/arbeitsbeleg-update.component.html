@@ -1,0 +1,79 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-arbeitsbeleg-heading">Create or edit a Arbeitsbeleg</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!arbeitsbeleg.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="arbeitsbeleg.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_objektNummer">Objekt Nummer</label>
+                    <input type="text" class="form-control" name="objektNummer" id="field_objektNummer"
+                        [(ngModel)]="arbeitsbeleg.objektNummer" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_datumLeistung">Datum Leistung</label>
+                    <div class="input-group">
+                        <input id="field_datumLeistung" type="text" class="form-control" name="datumLeistung" ngbDatepicker  #datumLeistungDp="ngbDatepicker" [(ngModel)]="arbeitsbeleg.datumLeistung"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="datumLeistungDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_status">Status</label>
+                    <select class="form-control" name="status" [(ngModel)]="arbeitsbeleg.status" id="field_status" >
+                        <option value="OFFEN">OFFEN</option>
+                        <option value="FERTIG">FERTIG</option>
+                        <option value="ABBRUCH">ABBRUCH</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_arbeitsbeleg">Arbeitsbeleg</label>
+                    <div>
+                        <div *ngIf="arbeitsbeleg.arbeitsbeleg" class="form-text text-danger clearfix">
+                            <a class="pull-left" (click)="openFile(arbeitsbeleg.arbeitsbelegContentType, arbeitsbeleg.arbeitsbeleg)">open</a><br>
+                            <span class="pull-left">{{arbeitsbeleg.arbeitsbelegContentType}}, {{byteSize(arbeitsbeleg.arbeitsbeleg)}}</span>
+                            <button type="button" (click)="arbeitsbeleg.arbeitsbeleg=null;arbeitsbeleg.arbeitsbelegContentType=null;"
+                                    class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_arbeitsbeleg" (change)="setFileData($event, arbeitsbeleg, 'arbeitsbeleg', false)"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="arbeitsbeleg" id="field_arbeitsbeleg"
+                        [(ngModel)]="arbeitsbeleg.arbeitsbeleg" />
+                    <input type="hidden" class="form-control" name="arbeitsbelegContentType" id="field_arbeitsbelegContentType"
+                        [(ngModel)]="arbeitsbeleg.arbeitsbelegContentType" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_user">User</label>
+                    <select class="form-control" id="field_user" name="user" [(ngModel)]="arbeitsbeleg.user" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id === arbeitsbeleg.user?.id ? arbeitsbeleg.user : userOption" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_termin">Termin</label>
+                    <select class="form-control" id="field_termin" name="termin" [(ngModel)]="arbeitsbeleg.termin" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="tblTermineOption.id === arbeitsbeleg.termin?.id ? arbeitsbeleg.termin : tblTermineOption" *ngFor="let tblTermineOption of tbltermines; trackBy: trackTblTermineById">{{tblTermineOption.terObjektNr}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

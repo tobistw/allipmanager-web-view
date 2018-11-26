@@ -1,0 +1,118 @@
+<div>
+    <h2 id="page-heading">
+        <span>Tbl Termines</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-tbl-termine" [routerLink]="['/tbl-termine/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Tbl Termine
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="tblTermines">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span>ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="terTermianId"><span>Ter Termian Id</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="terObjektNr"><span>Ter Objekt Nr</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="terPerNrRef"><span>Ter Per Nr Ref</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="terIbsDatum"><span>Ter Ibs Datum</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="terIbsUhrzeit"><span>Ter Ibs Uhrzeit</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="terDatumNeu"><span>Ter Datum Neu</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="terBemerkung"><span>Ter Bemerkung</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="terAntennen"><span>Ter Antennen</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="terMontiert"><span>Ter Montiert</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="terIbsProvisorium"><span>Ter Ibs Provisorium</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="terKonzId"><span>Ter Konz Id</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="terStatus"><span>Ter Status</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="terStatusProtokoll"><span>Ter Status Protokoll</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="terKundenInfoTyp"><span>Ter Kunden Info Typ</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="terKundeInformiert"><span>Ter Kunde Informiert</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="terKundeBestaetigt"><span>Ter Kunde Bestaetigt</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="terKundeAntenneErhalten"><span>Ter Kunde Antenne Erhalten</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="terSiemensInformiert"><span>Ter Siemens Informiert</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="terDslFrist"><span>Ter Dsl Frist</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="terTermintyp"><span>Ter Termintyp</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="terFunkmessung"><span>Ter Funkmessung</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="terKlaerung"><span>Ter Klaerung</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="terAbgesagt"><span>Ter Abgesagt</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="terHinweis"><span>Ter Hinweis</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="terSimImGeraet"><span>Ter Sim Im Geraet</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="user.id"><span>User</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="vertrag.verObjektNr"><span>Vertrag</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="siemens.terObjektNr"><span>Siemens</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let tblTermine of tblTermines ;trackBy: trackId">
+                <td><a [routerLink]="['/tbl-termine', tblTermine.id, 'view' ]">{{tblTermine.id}}</a></td>
+                <td>{{tblTermine.terTermianId}}</td>
+                <td>{{tblTermine.terObjektNr}}</td>
+                <td>{{tblTermine.terPerNrRef}}</td>
+                <td>{{tblTermine.terIbsDatum | date:'mediumDate'}}</td>
+                <td>{{tblTermine.terIbsUhrzeit}}</td>
+                <td>{{tblTermine.terDatumNeu | date:'mediumDate'}}</td>
+                <td>{{tblTermine.terBemerkung}}</td>
+                <td>{{tblTermine.terAntennen}}</td>
+                <td>{{tblTermine.terMontiert}}</td>
+                <td>{{tblTermine.terIbsProvisorium}}</td>
+                <td>{{tblTermine.terKonzId}}</td>
+                <td>{{tblTermine.terStatus}}</td>
+                <td>{{tblTermine.terStatusProtokoll}}</td>
+                <td>{{tblTermine.terKundenInfoTyp}}</td>
+                <td>{{tblTermine.terKundeInformiert}}</td>
+                <td>{{tblTermine.terKundeBestaetigt}}</td>
+                <td>{{tblTermine.terKundeAntenneErhalten}}</td>
+                <td>{{tblTermine.terSiemensInformiert}}</td>
+                <td>{{tblTermine.terDslFrist | date:'mediumDate'}}</td>
+                <td>{{tblTermine.terTermintyp}}</td>
+                <td>{{tblTermine.terFunkmessung}}</td>
+                <td>{{tblTermine.terKlaerung}}</td>
+                <td>{{tblTermine.terAbgesagt}}</td>
+                <td>{{tblTermine.terHinweis}}</td>
+                <td>{{tblTermine.terSimImGeraet}}</td>
+                <td>
+                    {{tblTermine.user?.id}}
+                </td>
+                <td>
+                    <div *ngIf="tblTermine.vertrag">
+                        <a [routerLink]="['../tbl-vertrag', tblTermine.vertrag?.id, 'view' ]" >{{tblTermine.vertrag?.verObjektNr}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="tblTermine.siemens">
+                        <a [routerLink]="['../tnd-siemens', tblTermine.siemens?.id, 'view' ]" >{{tblTermine.siemens?.terObjektNr}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/tbl-termine', tblTermine.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/tbl-termine', tblTermine.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'tbl-termine/'+ tblTermine.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,80 @@
+<div>
+    <h2 id="page-heading">
+        <span>Tbl Funkmessungs</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-tbl-funkmessung" [routerLink]="['/tbl-funkmessung/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Tbl Funkmessung
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="tblFunkmessungs">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Fun Id</span></th>
+            <th><span>Fun Objekt Nr</span></th>
+            <th><span>Fun Datum</span></th>
+            <th><span>Fun D 1</span></th>
+            <th><span>Fun D 2</span></th>
+            <th><span>Fun O 2</span></th>
+            <th><span>Fun Eplus</span></th>
+            <th><span>Fun Zusatz</span></th>
+            <th><span>Fun Kabel</span></th>
+            <th><span>Fun Bemerkung</span></th>
+            <th><span>Fun Name</span></th>
+            <th><span>Tbl Termine</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let tblFunkmessung of tblFunkmessungs ;trackBy: trackId">
+                <td><a [routerLink]="['/tbl-funkmessung', tblFunkmessung.id, 'view' ]">{{tblFunkmessung.id}}</a></td>
+                <td>{{tblFunkmessung.funId}}</td>
+                <td>{{tblFunkmessung.funObjektNr}}</td>
+                <td>{{tblFunkmessung.funDatum | date:'mediumDate'}}</td>
+                <td>{{tblFunkmessung.funD1}}</td>
+                <td>{{tblFunkmessung.funD2}}</td>
+                <td>{{tblFunkmessung.funO2}}</td>
+                <td>{{tblFunkmessung.funEplus}}</td>
+                <td>{{tblFunkmessung.funZusatz}}</td>
+                <td>{{tblFunkmessung.funKabel}}</td>
+                <td>{{tblFunkmessung.funBemerkung}}</td>
+                <td>{{tblFunkmessung.funName}}</td>
+                <td>
+                    <div *ngIf="tblFunkmessung.tblTermine">
+                        <a [routerLink]="['../tbl-termine', tblFunkmessung.tblTermine?.id, 'view' ]" >{{tblFunkmessung.tblTermine?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/tbl-funkmessung', tblFunkmessung.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/tbl-funkmessung', tblFunkmessung.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'tbl-funkmessung/'+ tblFunkmessung.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,90 @@
+<div>
+    <h2 id="page-heading">
+        <span>Tbl Vertrags</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-tbl-vertrag" [routerLink]="['/tbl-vertrag/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Tbl Vertrag
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="tblVertrags">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span>ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="verHv"><span>Ver Hv</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="verEquipmentNr"><span>Ver Equipment Nr</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="verObjektNr"><span>Ver Objekt Nr</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="verTeilmelder"><span>Ver Teilmelder</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="verVpName"><span>Ver Vp Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="verVpName2"><span>Ver Vp Name 2</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="verVpStrasse"><span>Ver Vp Strasse</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="verVpPlz"><span>Ver Vp Plz</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="verVpOrt"><span>Ver Vp Ort</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="verObjName"><span>Ver Obj Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="verObjStrasse"><span>Ver Obj Strasse</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="verObjPlz"><span>Ver Obj Plz</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="verObjOrt"><span>Ver Obj Ort</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="verSiseVertrag"><span>Ver Sise Vertrag</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="verSiseTyp"><span>Ver Sise Typ</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="verKonzId"><span>Ver Konz Id</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="verWartung"><span>Ver Wartung</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="verMarkieren"><span>Ver Markieren</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="verDummy"><span>Ver Dummy</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let tblVertrag of tblVertrags ;trackBy: trackId">
+                <td><a [routerLink]="['/tbl-vertrag', tblVertrag.id, 'view' ]">{{tblVertrag.id}}</a></td>
+                <td>{{tblVertrag.verHv}}</td>
+                <td>{{tblVertrag.verEquipmentNr}}</td>
+                <td>{{tblVertrag.verObjektNr}}</td>
+                <td>{{tblVertrag.verTeilmelder}}</td>
+                <td>{{tblVertrag.verVpName}}</td>
+                <td>{{tblVertrag.verVpName2}}</td>
+                <td>{{tblVertrag.verVpStrasse}}</td>
+                <td>{{tblVertrag.verVpPlz}}</td>
+                <td>{{tblVertrag.verVpOrt}}</td>
+                <td>{{tblVertrag.verObjName}}</td>
+                <td>{{tblVertrag.verObjStrasse}}</td>
+                <td>{{tblVertrag.verObjPlz}}</td>
+                <td>{{tblVertrag.verObjOrt}}</td>
+                <td>{{tblVertrag.verSiseVertrag}}</td>
+                <td>{{tblVertrag.verSiseTyp}}</td>
+                <td>{{tblVertrag.verKonzId}}</td>
+                <td>{{tblVertrag.verWartung}}</td>
+                <td>{{tblVertrag.verMarkieren}}</td>
+                <td>{{tblVertrag.verDummy}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/tbl-vertrag', tblVertrag.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/tbl-vertrag', tblVertrag.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'tbl-vertrag/'+ tblVertrag.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

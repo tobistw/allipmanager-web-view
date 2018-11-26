@@ -1,0 +1,58 @@
+<div>
+    <h2 id="page-heading">
+        <span>Dashboards</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-dashboard" [routerLink]="['/dashboard/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Dashboard
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="dashboards">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Zeitstempel</span></th>
+            <th><span>Titel</span></th>
+            <th><span>Nachricht</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let dashboard of dashboards ;trackBy: trackId">
+                <td><a [routerLink]="['/dashboard', dashboard.id, 'view' ]">{{dashboard.id}}</a></td>
+                <td>{{dashboard.zeitstempel | date:'medium'}}</td>
+                <td>{{dashboard.titel}}</td>
+                <td>{{dashboard.nachricht}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/dashboard', dashboard.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/dashboard', dashboard.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'dashboard/'+ dashboard.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

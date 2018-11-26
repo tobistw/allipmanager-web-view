@@ -1,0 +1,66 @@
+{
+    "name": "TblFunkmessung",
+    "fields": [
+        {
+            "fieldName": "funId",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "funObjektNr",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "funDatum",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "funD1",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "funD2",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "funO2",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "funEplus",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "funZusatz",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "funKabel",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "funBemerkung",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "funName",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "tblTermine",
+            "otherEntityName": "tblTermine",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20181126200640",
+    "entityTableName": "tbl_funkmessung",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

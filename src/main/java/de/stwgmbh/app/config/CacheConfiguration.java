@@ -38,6 +38,19 @@ public class CacheConfiguration {
             cm.createCache(de.stwgmbh.app.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(de.stwgmbh.app.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(de.stwgmbh.app.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            cm.createCache(de.stwgmbh.app.domain.TblTermine.class.getName(), jcacheConfiguration);
+            cm.createCache(de.stwgmbh.app.domain.TblTermine.class.getName() + ".funkmessungs", jcacheConfiguration);
+            cm.createCache(de.stwgmbh.app.domain.TblFunkmessung.class.getName(), jcacheConfiguration);
+            cm.createCache(de.stwgmbh.app.domain.Dashboard.class.getName(), jcacheConfiguration);
+            cm.createCache(de.stwgmbh.app.domain.Arbeitsbeleg.class.getName(), jcacheConfiguration);
+            cm.createCache(de.stwgmbh.app.domain.Abnahmeprotokoll.class.getName(), jcacheConfiguration);
+            cm.createCache(de.stwgmbh.app.domain.TblVertrag.class.getName(), jcacheConfiguration);
+            cm.createCache(de.stwgmbh.app.domain.TblVertrag.class.getName() + ".termines", jcacheConfiguration);
+            cm.createCache(de.stwgmbh.app.domain.TblVertrag.class.getName() + ".kontakts", jcacheConfiguration);
+            cm.createCache(de.stwgmbh.app.domain.TndSiemens.class.getName(), jcacheConfiguration);
+            cm.createCache(de.stwgmbh.app.domain.TndSiemens.class.getName() + ".termins", jcacheConfiguration);
+            cm.createCache(de.stwgmbh.app.domain.TndSiemens.class.getName() + ".kontakts", jcacheConfiguration);
+            cm.createCache(de.stwgmbh.app.domain.TblAsp.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

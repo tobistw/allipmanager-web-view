@@ -1,0 +1,140 @@
+{
+    "name": "TblTermine",
+    "fields": [
+        {
+            "fieldName": "terTermianId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "terObjektNr",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "terPerNrRef",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "terIbsDatum",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "terIbsUhrzeit",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "terDatumNeu",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "terBemerkung",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "terAntennen",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "terMontiert",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "terIbsProvisorium",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "terKonzId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "terStatus",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "terStatusProtokoll",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "terKundenInfoTyp",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "terKundeInformiert",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "terKundeBestaetigt",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "terKundeAntenneErhalten",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "terSiemensInformiert",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "terDslFrist",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "terTermintyp",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "terFunkmessung",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "terKlaerung",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "terAbgesagt",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "terHinweis",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "terSimImGeraet",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "funkmessung",
+            "otherEntityName": "tblFunkmessung",
+            "otherEntityRelationshipName": "tblTermine"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "vertrag",
+            "otherEntityName": "tblVertrag",
+            "otherEntityField": "verObjektNr"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "siemens",
+            "otherEntityName": "tndSiemens",
+            "otherEntityField": "terObjektNr"
+        }
+    ],
+    "changelogDate": "20181126200639",
+    "entityTableName": "tbl_termine",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

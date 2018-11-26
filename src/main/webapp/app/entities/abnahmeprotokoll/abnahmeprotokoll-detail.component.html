@@ -1,0 +1,92 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="abnahmeprotokoll">
+            <h2><span>Abnahmeprotokoll</span> {{abnahmeprotokoll.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Objekt Nummer</span></dt>
+                <dd>
+                    <span>{{abnahmeprotokoll.objektNummer}}</span>
+                </dd>
+                <dt><span>Datum Leistung</span></dt>
+                <dd>
+                    <span>{{abnahmeprotokoll.datumLeistung}}</span>
+                </dd>
+                <dt><span>Firma</span></dt>
+                <dd>
+                    <span>{{abnahmeprotokoll.firma}}</span>
+                </dd>
+                <dt><span>Kunde Asp</span></dt>
+                <dd>
+                    <span>{{abnahmeprotokoll.kundeAsp}}</span>
+                </dd>
+                <dt><span>Firma Asp</span></dt>
+                <dd>
+                    <span>{{abnahmeprotokoll.firmaAsp}}</span>
+                </dd>
+                <dt><span>Sise</span></dt>
+                <dd>
+                    <span>{{abnahmeprotokoll.sise}}</span>
+                </dd>
+                <dt><span>Zusatzleistungen</span></dt>
+                <dd>
+                    <span>{{abnahmeprotokoll.zusatzleistungen}}</span>
+                </dd>
+                <dt><span>Antenne</span></dt>
+                <dd>
+                    <span>{{abnahmeprotokoll.antenne}}</span>
+                </dd>
+                <dt><span>Gprs Signal</span></dt>
+                <dd>
+                    <span>{{abnahmeprotokoll.gprsSignal}}</span>
+                </dd>
+                <dt><span>Alarm Test</span></dt>
+                <dd>
+                    <span>{{abnahmeprotokoll.alarmTest}}</span>
+                </dd>
+                <dt><span>Alarm Bemerkung</span></dt>
+                <dd>
+                    <span>{{abnahmeprotokoll.alarmBemerkung}}</span>
+                </dd>
+                <dt><span>Ort</span></dt>
+                <dd>
+                    <span>{{abnahmeprotokoll.ort}}</span>
+                </dd>
+                <dt><span>Datum</span></dt>
+                <dd>
+                    <span>{{abnahmeprotokoll.datum}}</span>
+                </dd>
+                <dt><span>Abn Protokoll</span></dt>
+                <dd>
+                    <div *ngIf="abnahmeprotokoll.abnProtokoll">
+                        <a (click)="openFile(abnahmeprotokoll.abnProtokollContentType, abnahmeprotokoll.abnProtokoll)">open</a>
+                        {{abnahmeprotokoll.abnProtokollContentType}}, {{byteSize(abnahmeprotokoll.abnProtokoll)}}
+                    </div>
+                </dd>
+                <dt><span>User</span></dt>
+                <dd>
+                    {{abnahmeprotokoll.user?.id}}
+                </dd>
+                <dt><span>Abnahmeprotokoll</span></dt>
+                <dd>
+                    <div *ngIf="abnahmeprotokoll.abnahmeprotokoll">
+                        <a [routerLink]="['/tbl-termine', abnahmeprotokoll.abnahmeprotokoll?.id, 'view']">{{abnahmeprotokoll.abnahmeprotokoll?.objektNummer}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/abnahmeprotokoll', abnahmeprotokoll.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

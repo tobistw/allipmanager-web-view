@@ -1,0 +1,85 @@
+{
+    "name": "Abnahmeprotokoll",
+    "fields": [
+        {
+            "fieldName": "objektNummer",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "datumLeistung",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "firma",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "kundeAsp",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "firmaAsp",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "sise",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "zusatzleistungen",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "antenne",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "gprsSignal",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "alarmTest",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "alarmBemerkung",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "ort",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "datum",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "abnProtokoll",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "any"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "abnahmeprotokoll",
+            "otherEntityName": "tblTermine",
+            "otherEntityField": "objektNummer"
+        }
+    ],
+    "changelogDate": "20181126200643",
+    "entityTableName": "abnahmeprotokoll",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

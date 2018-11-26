@@ -1,0 +1,119 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-tbl-vertrag-heading">Create or edit a Tbl Vertrag</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!tblVertrag.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="tblVertrag.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_verHv">Ver Hv</label>
+                    <input type="text" class="form-control" name="verHv" id="field_verHv"
+                        [(ngModel)]="tblVertrag.verHv" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_verEquipmentNr">Ver Equipment Nr</label>
+                    <input type="text" class="form-control" name="verEquipmentNr" id="field_verEquipmentNr"
+                        [(ngModel)]="tblVertrag.verEquipmentNr" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_verObjektNr">Ver Objekt Nr</label>
+                    <input type="text" class="form-control" name="verObjektNr" id="field_verObjektNr"
+                        [(ngModel)]="tblVertrag.verObjektNr" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_verTeilmelder">Ver Teilmelder</label>
+                    <input type="text" class="form-control" name="verTeilmelder" id="field_verTeilmelder"
+                        [(ngModel)]="tblVertrag.verTeilmelder" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_verVpName">Ver Vp Name</label>
+                    <input type="text" class="form-control" name="verVpName" id="field_verVpName"
+                        [(ngModel)]="tblVertrag.verVpName" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_verVpName2">Ver Vp Name 2</label>
+                    <input type="text" class="form-control" name="verVpName2" id="field_verVpName2"
+                        [(ngModel)]="tblVertrag.verVpName2" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_verVpStrasse">Ver Vp Strasse</label>
+                    <input type="text" class="form-control" name="verVpStrasse" id="field_verVpStrasse"
+                        [(ngModel)]="tblVertrag.verVpStrasse" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_verVpPlz">Ver Vp Plz</label>
+                    <input type="text" class="form-control" name="verVpPlz" id="field_verVpPlz"
+                        [(ngModel)]="tblVertrag.verVpPlz" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_verVpOrt">Ver Vp Ort</label>
+                    <input type="text" class="form-control" name="verVpOrt" id="field_verVpOrt"
+                        [(ngModel)]="tblVertrag.verVpOrt" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_verObjName">Ver Obj Name</label>
+                    <input type="text" class="form-control" name="verObjName" id="field_verObjName"
+                        [(ngModel)]="tblVertrag.verObjName" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_verObjStrasse">Ver Obj Strasse</label>
+                    <input type="text" class="form-control" name="verObjStrasse" id="field_verObjStrasse"
+                        [(ngModel)]="tblVertrag.verObjStrasse" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_verObjPlz">Ver Obj Plz</label>
+                    <input type="text" class="form-control" name="verObjPlz" id="field_verObjPlz"
+                        [(ngModel)]="tblVertrag.verObjPlz" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_verObjOrt">Ver Obj Ort</label>
+                    <input type="text" class="form-control" name="verObjOrt" id="field_verObjOrt"
+                        [(ngModel)]="tblVertrag.verObjOrt" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_verSiseVertrag">Ver Sise Vertrag</label>
+                    <input type="text" class="form-control" name="verSiseVertrag" id="field_verSiseVertrag"
+                        [(ngModel)]="tblVertrag.verSiseVertrag" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_verSiseTyp">Ver Sise Typ</label>
+                    <input type="text" class="form-control" name="verSiseTyp" id="field_verSiseTyp"
+                        [(ngModel)]="tblVertrag.verSiseTyp" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_verKonzId">Ver Konz Id</label>
+                    <input type="text" class="form-control" name="verKonzId" id="field_verKonzId"
+                        [(ngModel)]="tblVertrag.verKonzId" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_verWartung">Ver Wartung</label>
+                    <input type="text" class="form-control" name="verWartung" id="field_verWartung"
+                        [(ngModel)]="tblVertrag.verWartung" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_verMarkieren">Ver Markieren</label>
+                    <input type="checkbox" class="form-control" name="verMarkieren" id="field_verMarkieren"
+                        [(ngModel)]="tblVertrag.verMarkieren" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_verDummy">Ver Dummy</label>
+                    <input type="checkbox" class="form-control" name="verDummy" id="field_verDummy"
+                        [(ngModel)]="tblVertrag.verDummy" />
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

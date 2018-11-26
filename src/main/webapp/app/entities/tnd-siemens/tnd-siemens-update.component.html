@@ -1,0 +1,109 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-tnd-siemens-heading">Create or edit a Tnd Siemens</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!tndSiemens.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="tndSiemens.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_tndObjNr">Tnd Obj Nr</label>
+                    <input type="text" class="form-control" name="tndObjNr" id="field_tndObjNr"
+                        [(ngModel)]="tndSiemens.tndObjNr" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_tndTeilObjNr">Tnd Teil Obj Nr</label>
+                    <input type="text" class="form-control" name="tndTeilObjNr" id="field_tndTeilObjNr"
+                        [(ngModel)]="tndSiemens.tndTeilObjNr" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_tndWarten">Tnd Warten</label>
+                    <div class="input-group">
+                        <input id="field_tndWarten" type="text" class="form-control" name="tndWarten" ngbDatepicker  #tndWartenDp="ngbDatepicker" [(ngModel)]="tndSiemens.tndWarten"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="tndWartenDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_tndLeitungsNrAlt">Tnd Leitungs Nr Alt</label>
+                    <input type="text" class="form-control" name="tndLeitungsNrAlt" id="field_tndLeitungsNrAlt"
+                        [(ngModel)]="tndSiemens.tndLeitungsNrAlt" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_tndLeitungsNrNeu">Tnd Leitungs Nr Neu</label>
+                    <input type="text" class="form-control" name="tndLeitungsNrNeu" id="field_tndLeitungsNrNeu"
+                        [(ngModel)]="tndSiemens.tndLeitungsNrNeu" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_tndGSMNr">Tnd GSM Nr</label>
+                    <input type="text" class="form-control" name="tndGSMNr" id="field_tndGSMNr"
+                        [(ngModel)]="tndSiemens.tndGSMNr" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_tndGSMNr2">Tnd GSM Nr 2</label>
+                    <input type="text" class="form-control" name="tndGSMNr2" id="field_tndGSMNr2"
+                        [(ngModel)]="tndSiemens.tndGSMNr2" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_tndWartungBMA">Tnd Wartung BMA</label>
+                    <input type="text" class="form-control" name="tndWartungBMA" id="field_tndWartungBMA"
+                        [(ngModel)]="tndSiemens.tndWartungBMA" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_tndSiSe">Tnd Si Se</label>
+                    <input type="text" class="form-control" name="tndSiSe" id="field_tndSiSe"
+                        [(ngModel)]="tndSiemens.tndSiSe" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_tndLogin">Tnd Login</label>
+                    <input type="text" class="form-control" name="tndLogin" id="field_tndLogin"
+                        [(ngModel)]="tndSiemens.tndLogin" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_tndPasswort">Tnd Passwort</label>
+                    <input type="text" class="form-control" name="tndPasswort" id="field_tndPasswort"
+                        [(ngModel)]="tndSiemens.tndPasswort" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_tndIP">Tnd IP</label>
+                    <input type="text" class="form-control" name="tndIP" id="field_tndIP"
+                        [(ngModel)]="tndSiemens.tndIP" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_tndTelekomNr">Tnd Telekom Nr</label>
+                    <input type="number" class="form-control" name="tndTelekomNr" id="field_tndTelekomNr"
+                        [(ngModel)]="tndSiemens.tndTelekomNr" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_tndLeitungsNrPseudo">Tnd Leitungs Nr Pseudo</label>
+                    <input type="number" class="form-control" name="tndLeitungsNrPseudo" id="field_tndLeitungsNrPseudo"
+                        [(ngModel)]="tndSiemens.tndLeitungsNrPseudo" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_tndDslFrist">Tnd Dsl Frist</label>
+                    <div class="input-group">
+                        <input id="field_tndDslFrist" type="text" class="form-control" name="tndDslFrist" ngbDatepicker  #tndDslFristDp="ngbDatepicker" [(ngModel)]="tndSiemens.tndDslFrist"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="tndDslFristDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
